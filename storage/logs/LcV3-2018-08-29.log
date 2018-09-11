@@ -1,0 +1,3 @@
+[2018-08-29 15:21:42] local.ERROR: Symfony\Component\Debug\Exception\FatalErrorException: Out of memory (allocated 4194304) (tried to allocate 65536 bytes) in /data/Wormhole/vendor/composer/ClassLoader.php:444
+Stack trace:
+#0 {main}  

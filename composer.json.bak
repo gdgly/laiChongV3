@@ -1,0 +1,16 @@
+{
+    "name": "hichao/wormhole",
+    "authors": [
+        {
+            "name": "sichao",
+            "email": "sichao@example.com"
+        }
+    ],
+    "require": {}
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}

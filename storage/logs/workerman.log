@@ -1,0 +1,830 @@
+2018-05-01 16:05:40 pid:2484 Workerman[artisan] start in DEBUG mode
+2018-05-01 16:20:19 pid:2665 Workerman[artisan] start in DEBUG mode
+2018-05-01 16:32:42 pid:2665 Workerman[artisan] stopping ...
+2018-05-01 16:32:42 pid:2665 Workerman[artisan] has been stopped
+2018-05-01 16:32:43 pid:2773 Workerman[artisan] start in DEBUG mode
+2018-05-01 16:32:45 pid:2773 Workerman[artisan] stopping ...
+2018-05-01 16:32:45 pid:2773 Workerman[artisan] has been stopped
+2018-05-01 22:07:24 pid:18432 Workerman[artisan] start in DEBUG mode
+2018-05-01 22:25:26 pid:18432 Workerman[artisan] stopping ...
+2018-05-01 22:25:27 pid:18432 Workerman[artisan] has been stopped
+2018-05-01 22:32:36 pid:18533 Workerman[artisan] start in DEBUG mode
+2018-05-01 22:33:13 pid:18533 Workerman[artisan] stopping ...
+2018-05-01 22:33:14 pid:18533 Workerman[artisan] has been stopped
+2018-05-01 22:42:01 pid:18569 Workerman[artisan] start in DEBUG mode
+2018-05-01 22:44:02 pid:18569 Workerman[artisan] stopping ...
+2018-05-01 22:44:02 pid:18569 Workerman[artisan] has been stopped
+2018-05-03 22:05:47 pid:21958 Workerman[artisan] start in DEBUG mode
+2018-05-03 22:06:54 pid:21958 Workerman[artisan] stopping ...
+2018-05-03 22:06:54 pid:21958 Workerman[artisan] has been stopped
+2018-05-05 18:32:23 pid:24180 Workerman[artisan] start in DEBUG mode
+2018-05-05 18:34:50 pid:24183 exception 'Predis\Connection\ConnectionException' with message 'Connection timed out [tcp://r-uf6c30a46e47ea74.redis.rds.aliyuncs.com:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\Connection\AbstractConnection->onConnectionError('Connection time...', 110)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\Connection\StreamConnection->createStreamSocket(Object(Predis\Connection\Parameters), 'tcp://r-uf6c30a...', 4)
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\Connection\StreamConnection->tcpStreamInitializer(Object(Predis\Connection\Parameters))
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\Connection\StreamConnection->createResource()
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\Connection\AbstractConnection->connect()
+#5 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#6 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#7 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#8 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#9 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#10 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#11 [internal function]: Predis\Client->__call('set', Array)
+#12 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#15 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#16 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#17 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#18 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#19 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#20 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#21 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#22 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#23 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#24 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#25 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #300)
+#26 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#28 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#29 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#30 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#31 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#32 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#33 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#34 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#35 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#36 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#37 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 {main}
+2018-05-05 18:34:50 pid:24183 Worker process terminated
+2018-05-05 18:34:50 pid:24180 worker[businessWorker:24183] exit with status 64000
+2018-05-05 18:54:01 pid:24180 Workerman[artisan] stopping ...
+2018-05-05 18:54:01 pid:24180 Workerman[artisan] has been stopped
+2018-05-05 18:54:03 pid:25001 Workerman[artisan] start in DEBUG mode
+2018-05-05 18:54:08 pid:25002 exception 'Predis\Connection\ConnectionException' with message 'Connection refused [tcp://45.62.102.179:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\Connection\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\Connection\StreamConnection->createStreamSocket(Object(Predis\Connection\Parameters), 'tcp://45.62.102...', 4)
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\Connection\StreamConnection->tcpStreamInitializer(Object(Predis\Connection\Parameters))
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\Connection\StreamConnection->createResource()
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\Connection\AbstractConnection->connect()
+#5 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#6 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#7 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#8 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#9 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#10 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#11 [internal function]: Predis\Client->__call('set', Array)
+#12 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#15 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#16 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#17 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#18 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#19 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#20 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#21 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#22 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#23 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#24 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#25 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #297)
+#26 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#28 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#29 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#30 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#31 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#32 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#33 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#34 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#35 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#36 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#37 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 {main}
+2018-05-05 18:54:08 pid:25002 Worker process terminated
+2018-05-05 18:54:08 pid:25001 worker[businessWorker:25002] exit with status 64000
+2018-05-05 19:24:45 pid:2342 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:25:23 pid:2345 exception 'Predis\Connection\ConnectionException' with message 'Connection refused [tcp://45.62.102.179:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\Connection\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\Connection\StreamConnection->createStreamSocket(Object(Predis\Connection\Parameters), 'tcp://45.62.102...', 4)
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\Connection\StreamConnection->tcpStreamInitializer(Object(Predis\Connection\Parameters))
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\Connection\StreamConnection->createResource()
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\Connection\AbstractConnection->connect()
+#5 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#6 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#7 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#8 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#9 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#10 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#11 [internal function]: Predis\Client->__call('set', Array)
+#12 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#15 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#16 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#17 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#18 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#19 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#20 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#21 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#22 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#23 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#24 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#25 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #301)
+#26 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#28 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#29 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#30 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#31 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#32 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#33 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#34 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#35 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#36 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#37 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 {main}
+2018-05-05 19:25:23 pid:2345 Worker process terminated
+2018-05-05 19:25:23 pid:2342 worker[businessWorker:2345] exit with status 64000
+2018-05-05 19:25:47 pid:2343 exception 'Predis\Connection\ConnectionException' with message 'Connection refused [tcp://45.62.102.179:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(128): Predis\Connection\AbstractConnection->onConnectionError('Connection refu...', 111)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(178): Predis\Connection\StreamConnection->createStreamSocket(Object(Predis\Connection\Parameters), 'tcp://45.62.102...', 4)
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(100): Predis\Connection\StreamConnection->tcpStreamInitializer(Object(Predis\Connection\Parameters))
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(81): Predis\Connection\StreamConnection->createResource()
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(258): Predis\Connection\AbstractConnection->connect()
+#5 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#6 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#7 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#8 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#9 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#10 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#11 [internal function]: Predis\Client->__call('set', Array)
+#12 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#15 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#16 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#17 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#18 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#19 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#20 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#21 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#22 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#23 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#24 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#25 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #299)
+#26 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#28 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#29 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#30 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#31 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#32 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#33 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#34 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#35 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#36 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#37 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#41 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#42 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#43 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#44 {main}
+2018-05-05 19:25:47 pid:2343 Worker process terminated
+2018-05-05 19:25:47 pid:2342 worker[businessWorker:2343] exit with status 64000
+2018-05-05 19:25:53 pid:2342 Workerman[artisan] stopping ...
+2018-05-05 19:25:53 pid:2342 Workerman[artisan] has been stopped
+2018-05-05 19:25:55 pid:2417 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:25:59 pid:2419 exception 'Predis\Connection\ConnectionException' with message '`AUTH` failed: ERR Client sent AUTH, but no password is set [tcp://127.0.0.1:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(263): Predis\Connection\AbstractConnection->onConnectionError('`AUTH` failed: ...', 0)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#5 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#6 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#7 [internal function]: Predis\Client->__call('set', Array)
+#8 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#10 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#11 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#12 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#13 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#14 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#15 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#16 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#17 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#18 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b31329000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#19 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#20 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#21 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #299)
+#22 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#24 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#25 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#26 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#28 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#29 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#30 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#31 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#32 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#33 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#37 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 {main}
+2018-05-05 19:25:59 pid:2419 Worker process terminated
+2018-05-05 19:25:59 pid:2417 worker[businessWorker:2419] exit with status 64000
+2018-05-05 19:26:44 pid:2417 Workerman[artisan] stopping ...
+2018-05-05 19:26:44 pid:2417 Workerman[artisan] has been stopped
+2018-05-05 19:26:46 pid:2473 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:26:51 pid:2475 exception 'Predis\Connection\ConnectionException' with message '`AUTH` failed: ERR Client sent AUTH, but no password is set [tcp://127.0.0.1:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(263): Predis\Connection\AbstractConnection->onConnectionError('`AUTH` failed: ...', 0)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#5 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#6 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#7 [internal function]: Predis\Client->__call('set', Array)
+#8 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#10 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#11 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#12 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#13 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#14 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#15 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#16 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#17 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#18 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#19 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#20 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#21 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #297)
+#22 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#24 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#25 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#26 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#28 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#29 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#30 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#31 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#32 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#33 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#37 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 {main}
+2018-05-05 19:26:51 pid:2475 Worker process terminated
+2018-05-05 19:26:51 pid:2473 worker[businessWorker:2475] exit with status 64000
+2018-05-05 19:27:04 pid:2473 Workerman[artisan] stopping ...
+2018-05-05 19:27:04 pid:2473 Workerman[artisan] has been stopped
+2018-05-05 19:27:06 pid:2511 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:27:11 pid:2512 exception 'Predis\Connection\ConnectionException' with message '`AUTH` failed: ERR Client sent AUTH, but no password is set [tcp://127.0.0.1:6379]' in /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php:155
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(263): Predis\Connection\AbstractConnection->onConnectionError('`AUTH` failed: ...', 0)
+#1 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(180): Predis\Connection\StreamConnection->connect()
+#2 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(288): Predis\Connection\AbstractConnection->getResource()
+#3 /data/Wormhole/vendor/predis/predis/src/Connection/StreamConnection.php(394): Predis\Connection\StreamConnection->write('*3\r\n$3\r\nSET\r\n$2...')
+#4 /data/Wormhole/vendor/predis/predis/src/Connection/AbstractConnection.php(110): Predis\Connection\StreamConnection->writeRequest(Object(Predis\Command\StringSet))
+#5 /data/Wormhole/vendor/predis/predis/src/Client.php(331): Predis\Connection\AbstractConnection->executeCommand(Object(Predis\Command\StringSet))
+#6 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\StringSet))
+#7 [internal function]: Predis\Client->__call('set', Array)
+#8 [internal function]: Predis\Client->set('123456:serial_n...', 1)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#10 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('set', Array)
+#11 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('set', Array)
+#12 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->set('123456:serial_n...', 1)
+#13 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Facade::__callStatic('set', Array)
+#14 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(310): Illuminate\Support\Facades\Redis::set('123456:serial_n...', 1)
+#15 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#16 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#17 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#18 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#19 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#20 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#21 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #297)
+#22 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#24 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#25 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#26 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#27 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#28 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#29 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#30 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#31 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#32 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#33 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#37 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#38 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#39 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#40 {main}
+2018-05-05 19:27:11 pid:2512 Worker process terminated
+2018-05-05 19:27:11 pid:2511 worker[businessWorker:2512] exit with status 64000
+2018-05-05 19:27:39 pid:2511 Workerman[artisan] stopping ...
+2018-05-05 19:27:39 pid:2511 Workerman[artisan] has been stopped
+2018-05-05 19:27:54 pid:2648 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:41:10 pid:2648 Workerman[artisan] stopping ...
+2018-05-05 19:41:10 pid:2648 Workerman[artisan] has been stopped
+2018-05-05 19:41:12 pid:3044 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:47:01 pid:3044 Workerman[artisan] stopping ...
+2018-05-05 19:47:01 pid:3044 Workerman[artisan] has been stopped
+2018-05-05 19:47:02 pid:3121 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:48:16 pid:3121 Workerman[artisan] stopping ...
+2018-05-05 19:48:16 pid:3121 Workerman[artisan] has been stopped
+2018-05-05 19:48:17 pid:3278 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:53:53 pid:3278 Workerman[artisan] stopping ...
+2018-05-05 19:53:53 pid:3278 Workerman[artisan] has been stopped
+2018-05-05 19:53:54 pid:3378 Workerman[artisan] start in DEBUG mode
+2018-05-05 19:59:10 pid:3378 Workerman[artisan] stopping ...
+2018-05-05 19:59:10 pid:3378 Workerman[artisan] has been stopped
+2018-05-05 19:59:12 pid:3425 Workerman[artisan] start in DEBUG mode
+2018-05-05 20:00:21 pid:3425 Workerman[artisan] stopping ...
+2018-05-05 20:00:21 pid:3425 Workerman[artisan] has been stopped
+2018-05-05 20:00:25 pid:3496 Workerman[artisan] start in DEBUG mode
+2018-05-05 22:19:03 pid:4188 Workerman[artisan] start in DEBUG mode
+2018-05-06 16:44:39 pid:9057 Workerman[artisan] start in DEBUG mode
+2018-05-06 17:29:26 pid:9057 Workerman[artisan] stopping ...
+2018-05-06 17:29:26 pid:9057 Workerman[artisan] stopping ...
+2018-05-06 17:29:26 pid:9057 Workerman[artisan] has been stopped
+2018-05-06 17:29:27 pid:12228 Workerman[artisan] start in DEBUG mode
+2018-05-07 20:45:57 pid:14102 Workerman[artisan] start in DEBUG mode
+2018-05-07 20:54:03 pid:14103 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #298)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 20:54:03 pid:14103 Worker process terminated
+2018-05-07 20:54:03 pid:14102 worker[businessWorker:14103] exit with status 64000
+2018-05-07 21:07:22 pid:14104 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/bootstrap/cache/compiled.php(6468): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #298)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/bootstrap/cache/compiled.php(1375): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:07:22 pid:14104 Worker process terminated
+2018-05-07 21:07:22 pid:14102 worker[businessWorker:14104] exit with status 64000
+2018-05-07 21:09:18 pid:14102 Workerman[artisan] stopping ...
+2018-05-07 21:09:18 pid:14102 Workerman[artisan] stopping ...
+2018-05-07 21:09:19 pid:14102 Workerman[artisan] has been stopped
+2018-05-07 21:09:20 pid:14440 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:09:24 pid:14444 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #404)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:09:24 pid:14444 Worker process terminated
+2018-05-07 21:09:24 pid:14440 worker[businessWorker:14444] exit with status 64000
+2018-05-07 21:09:28 pid:14440 Workerman[artisan] stopping ...
+2018-05-07 21:09:28 pid:14440 Workerman[artisan] has been stopped
+2018-05-07 21:09:29 pid:14488 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:13:01 pid:14492 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132a000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #405)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:13:01 pid:14492 Worker process terminated
+2018-05-07 21:13:01 pid:14488 worker[businessWorker:14492] exit with status 64000
+2018-05-07 21:13:20 pid:14488 Workerman[artisan] stopping ...
+2018-05-07 21:13:20 pid:14488 Workerman[artisan] has been stopped
+2018-05-07 21:13:33 pid:14595 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:13:41 pid:14598 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #403)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:13:41 pid:14598 Worker process terminated
+2018-05-07 21:13:41 pid:14595 worker[businessWorker:14598] exit with status 64000
+2018-05-07 21:13:46 pid:14595 Workerman[artisan] stopping ...
+2018-05-07 21:13:47 pid:14595 Workerman[artisan] has been stopped
+2018-05-07 21:13:49 pid:14651 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:14:10 pid:14655 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(344): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #404)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:14:10 pid:14655 Worker process terminated
+2018-05-07 21:14:10 pid:14651 worker[businessWorker:14655] exit with status 64000
+2018-05-07 21:17:15 pid:14651 Workerman[artisan] stopping ...
+2018-05-07 21:17:15 pid:14651 Workerman[artisan] has been stopped
+2018-05-07 21:17:16 pid:14736 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:17:36 pid:14740 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(343): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132c000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #403)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:17:36 pid:14740 Worker process terminated
+2018-05-07 21:17:36 pid:14736 worker[businessWorker:14740] exit with status 64000
+2018-05-07 21:26:43 pid:14736 Workerman[artisan] stopping ...
+2018-05-07 21:26:43 pid:14736 Workerman[artisan] has been stopped
+2018-05-07 21:26:45 pid:14949 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:27:03 pid:14952 exception 'Predis\Response\ServerException' with message 'ERR value is not an integer or out of range' in /data/Wormhole/vendor/predis/predis/src/Client.php:370
+Stack trace:
+#0 /data/Wormhole/vendor/predis/predis/src/Client.php(335): Predis\Client->onErrorResponse(Object(Predis\Command\KeyExpire), Object(Predis\Response\Error))
+#1 /data/Wormhole/vendor/predis/predis/src/Client.php(315): Predis\Client->executeCommand(Object(Predis\Command\KeyExpire))
+#2 [internal function]: Predis\Client->__call('expire', Array)
+#3 [internal function]: Predis\Client->expire('QianNiu_123456', NULL)
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(88): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Redis/Database.php(137): Illuminate\Redis\Database->command('expire', Array)
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->__call('expire', Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(237): Illuminate\Redis\Database->expire('QianNiu_123456', NULL)
+#8 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Facade::__callStatic('expire', Array)
+#9 /data/Wormhole/app/Protocols/Library/Common.php(27): Illuminate\Support\Facades\Redis::expire('QianNiu_123456', NULL)
+#10 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(343): Wormhole\Protocols\Library\Common::record_log(123456, ' \xE7\xAD\xBE\xE5\x88\xB0,\xE6\xA1\xA9\xE4\xB8\x8A\xE6...', '{"frame_name":"...')
+#11 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(198): Wormhole\Protocols\QianNiu\EventsApi::sign('\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#12 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#13 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#14 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132b000...', '\xAA\x1E\x00\x01\xD5\x86\xEDZ@\xE2\x01\x00\x01\x11\n...')
+#15 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#16 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#17 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #404)
+#18 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#20 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#21 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#22 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#23 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#24 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#25 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#26 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#28 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#29 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#34 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#35 /data/Wormhole/artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#36 {main}
+2018-05-07 21:27:03 pid:14952 Worker process terminated
+2018-05-07 21:27:03 pid:14949 worker[businessWorker:14952] exit with status 64000
+2018-05-07 21:29:19 pid:14949 Workerman[artisan] stopping ...
+2018-05-07 21:29:19 pid:14949 Workerman[artisan] has been stopped
+2018-05-07 21:29:20 pid:15063 Workerman[artisan] start in DEBUG mode
+2018-05-07 21:34:20 pid:15063 Workerman[artisan] stopping ...
+2018-05-07 21:34:20 pid:15063 Workerman[artisan] has been stopped
+2018-05-07 21:34:22 pid:15238 Workerman[artisan] start in DEBUG mode
+2018-05-12 12:09:23 pid:30283 Workerman[artisan] start in DEBUG mode
+2018-05-12 12:09:26 pid:30283 Workerman[artisan] stopping ...
+2018-05-12 12:09:26 pid:30283 Workerman[artisan] has been stopped
+2018-08-18 21:49:08 pid:6449 Workerman[artisan] start in DEBUG mode
+2018-08-18 21:50:09 pid:6493 Workerman[artisan] start in DEBUG mode
+2018-08-18 21:50:41 pid:6495 ErrorException: count(): Parameter must be an array or an object that implements Countable in /data/Wormhole/app/Protocols/QianNiu/Protocol/Frame.php:44
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'count(): Parame...', '/data/Wormhole/...', 44, Array)
+#1 /data/Wormhole/app/Protocols/QianNiu/Protocol/Frame.php(44): count(false)
+#2 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\Protocol\Frame->__construct()
+#3 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132a000...', '\r\n')
+#4 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132a000...', '\r\n')
+#5 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132a000...', '\r\n')
+#6 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#8 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #401)
+#9 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#10 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#11 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#12 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#13 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#14 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#15 /data/Wormhole/vendor/workerman/workerman/Worker.php(466): Workerman\Worker::forkWorkers()
+#16 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#17 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#18 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#20 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 {main}
+2018-08-18 21:50:41 pid:6495 Worker process terminated
+2018-08-18 21:50:41 pid:6493 worker[businessWorker:6495] exit with status 64000
+2018-08-18 21:50:41 pid:6504 ErrorException: count(): Parameter must be an array or an object that implements Countable in /data/Wormhole/app/Protocols/QianNiu/Protocol/Frame.php:44
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'count(): Parame...', '/data/Wormhole/...', 44, Array)
+#1 /data/Wormhole/app/Protocols/QianNiu/Protocol/Frame.php(44): count(false)
+#2 /data/Wormhole/app/Protocols/QianNiu/EventsApi.php(181): Wormhole\Protocols\QianNiu\Protocol\Frame->__construct()
+#3 /data/Wormhole/app/Protocols/BaseEvents.php(183): Wormhole\Protocols\QianNiu\EventsApi::message('2d3e66b3132a000...', '\r\n')
+#4 [internal function]: Wormhole\Protocols\BaseEvents::onMessage('2d3e66b3132a000...', '\r\n')
+#5 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(384): call_user_func('\\Wormhole\\Proto...', '2d3e66b3132a000...', '\r\n')
+#6 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#7 /data/Wormhole/vendor/workerman/workerman/Connection/TcpConnection.php(639): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#8 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #402)
+#9 /data/Wormhole/vendor/workerman/workerman/Events/Select.php(286): call_user_func_array(Array, Array)
+#10 /data/Wormhole/vendor/workerman/workerman/Worker.php(2130): Workerman\Events\Select->loop()
+#11 /data/Wormhole/vendor/workerman/gateway-worker/src/BusinessWorker.php(190): Workerman\Worker->run()
+#12 /data/Wormhole/vendor/workerman/workerman/Worker.php(1323): GatewayWorker\BusinessWorker->run()
+#13 /data/Wormhole/vendor/workerman/workerman/Worker.php(1156): Workerman\Worker::forkOneWorkerForLinux(Object(GatewayWorker\BusinessWorker))
+#14 /data/Wormhole/vendor/workerman/workerman/Worker.php(1130): Workerman\Worker::forkWorkersForLinux()
+#15 /data/Wormhole/vendor/workerman/workerman/Worker.php(1455): Workerman\Worker::forkWorkers()
+#16 /data/Wormhole/vendor/workerman/workerman/Worker.php(1404): Workerman\Worker::monitorWorkersForLinux()
+#17 /data/Wormhole/vendor/workerman/workerman/Worker.php(468): Workerman\Worker::monitorWorkers()
+#18 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#19 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#20 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#21 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#22 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 {main}
+2018-08-18 21:50:41 pid:6504 Worker process terminated
+2018-08-18 21:50:41 pid:6493 worker[businessWorker:6504] exit with status 64000
+2018-08-18 21:50:55 pid:6493 Workerman[artisan] stopping ...
+2018-08-18 21:50:55 pid:6493 Workerman[artisan] has been stopped
+2018-08-22 11:05:40 pid:7356 Workerman[artisan] start in DAEMON mode
+2018-08-22 11:05:45 pid:7386 Workerman[artisan] stop 
+2018-08-22 11:05:45 pid:7386 Workerman[artisan] is stopping ...
+2018-08-22 11:05:45 pid:7358 Workerman[artisan] stopping ...
+2018-08-22 11:05:45 pid:7358 Workerman[artisan] has been stopped
+2018-08-22 11:05:45 pid:7386 Workerman[artisan] stop success
+2018-08-22 11:05:49 pid:7423 Workerman[artisan] start in DEBUG mode
+2018-08-22 11:05:57 pid:7423 Workerman[artisan] stopping ...
+2018-08-22 11:05:57 pid:7423 Workerman[artisan] has been stopped
+2018-08-22 11:17:50 pid:7961 Workerman[artisan] start in DEBUG mode
+2018-08-22 11:18:23 pid:7961 Workerman[artisan] stopping ...
+2018-08-22 11:18:23 pid:7961 Workerman[artisan] has been stopped

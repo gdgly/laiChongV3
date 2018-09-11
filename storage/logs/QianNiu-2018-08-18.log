@@ -1,0 +1,137 @@
+[2018-08-18 01:00:01] local.ERROR: Symfony\Component\Process\Exception\RuntimeException: The Process class relies on proc_open, which is not available on your PHP installation. in /data/Wormhole/vendor/symfony/process/Process.php:150
+Stack trace:
+#0 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Scheduling/Event.php(170): Symfony\Component\Process\Process->__construct(''/usr/local/php...', '/data/Wormhole', NULL, NULL, NULL)
+#1 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Scheduling/Event.php(153): Illuminate\Console\Scheduling\Event->runCommandInForeground(Object(Illuminate\Foundation\Application))
+#2 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Scheduling/ScheduleRunCommand.php(59): Illuminate\Console\Scheduling\Event->run(Object(Illuminate\Foundation\Application))
+#3 [internal function]: Illuminate\Console\Scheduling\ScheduleRunCommand->fire()
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#6 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Console\Scheduling\ScheduleRunCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 {main}  
+[2018-08-18 21:41:34] local.ERROR: PDOException: SQLSTATE[HY000] [1049] Unknown database 'laichong' in /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:119
+Stack trace:
+#0 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(119): PDO->__construct('mysql:host=loca...', 'root', 'hichao', Array)
+#1 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(56): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=loca...', 'root', 'hichao', Array)
+#2 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#3 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(126): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(965): call_user_func(Object(Closure))
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(986): Illuminate\Database\Connection->getPdo()
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(423): Illuminate\Database\Connection->getReadPdo()
+#8 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(333): Illuminate\Database\Connection->getPdoForSelect(true)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(763): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'select * from i...', Array)
+#10 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(726): Illuminate\Database\Connection->runQueryCallback('select * from i...', Array, Object(Closure))
+#11 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(351): Illuminate\Database\Connection->run('select * from i...', Array, Object(Closure))
+#12 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(21): Illuminate\Database\Connection->select('select * from i...', Array)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(156): Illuminate\Database\Schema\MySqlBuilder->hasTable('migrations')
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(515): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#15 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(92): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#16 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(58): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#17 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#18 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#20 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 {main}  
+[2018-08-18 21:41:34] local.ERROR: PDOException: SQLSTATE[HY000] [1049] Unknown database 'laichong' in /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:119
+Stack trace:
+#0 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(119): PDO->__construct('mysql:host=loca...', 'root', 'hichao', Array)
+#1 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(56): Illuminate\Database\Connectors\Connector->createPdoConnection('mysql:host=loca...', 'root', 'hichao', Array)
+#2 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#3 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(126): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\Database\Connectors\ConnectionFactory->Illuminate\Database\Connectors\{closure}()
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(965): call_user_func(Object(Closure))
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(986): Illuminate\Database\Connection->getPdo()
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(423): Illuminate\Database\Connection->getReadPdo()
+#8 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(333): Illuminate\Database\Connection->getPdoForSelect(true)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(763): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'select * from i...', Array)
+#10 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(726): Illuminate\Database\Connection->runQueryCallback('select * from i...', Array, Object(Closure))
+#11 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(351): Illuminate\Database\Connection->run('select * from i...', Array, Object(Closure))
+#12 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(21): Illuminate\Database\Connection->select('select * from i...', Array)
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(156): Illuminate\Database\Schema\MySqlBuilder->hasTable('migrations')
+#14 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(515): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#15 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(92): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#16 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(58): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#17 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#18 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#19 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#20 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[HY000] [1049] Unknown database 'laichong' (SQL: select * from information_schema.tables where table_schema = laichong and table_name = migrations) in /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php:770
+Stack trace:
+#0 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(726): Illuminate\Database\Connection->runQueryCallback('select * from i...', Array, Object(Closure))
+#1 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Connection.php(351): Illuminate\Database\Connection->run('select * from i...', Array, Object(Closure))
+#2 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(21): Illuminate\Database\Connection->select('select * from i...', Array)
+#3 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(156): Illuminate\Database\Schema\MySqlBuilder->hasTable('migrations')
+#4 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(515): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#5 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(92): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(58): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#7 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#8 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#10 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 {main}  
+[2018-08-18 21:49:08] local.ERROR: ErrorException: stream_socket_server() has been disabled for security reasons in /data/Wormhole/vendor/workerman/workerman/Worker.php:1992
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'stream_socket_s...', '/data/Wormhole/...', 1992, Array)
+#1 /data/Wormhole/vendor/workerman/workerman/Worker.php(1992): stream_socket_server('tcp://0.0.0.0:1...', 0, '', 12, Resource id #374)
+#2 /data/Wormhole/vendor/workerman/workerman/Worker.php(578): Workerman\Worker->listen()
+#3 /data/Wormhole/vendor/workerman/workerman/Worker.php(462): Workerman\Worker::initWorkers()
+#4 /data/Wormhole/app/Console/Commands/GatewayAll.php(73): Workerman\Worker::runAll()
+#5 [internal function]: Wormhole\Console\Commands\GatewayAll->handle()
+#6 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#7 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#8 /data/Wormhole/vendor/symfony/console/Command/Command.php(261): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /data/Wormhole/vendor/symfony/console/Application.php(817): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /data/Wormhole/vendor/symfony/console/Application.php(185): Symfony\Component\Console\Application->doRunCommand(Object(Wormhole\Console\Commands\GatewayAll), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /data/Wormhole/vendor/symfony/console/Application.php(116): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /data/Wormhole/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /data/Wormhole/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 {main}  
+[2018-08-18 21:50:40] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onConnect@79New connect id : 2d3e66b3132a00000001 , address:117.143.85.86 , port : 13729 
+  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu/Wormhole\Protocols\QianNiu\Protocol/input@35 包长度 2  
+[2018-08-18 21:50:41] local.INFO: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onMessage@175 START
+ client:2d3e66b3132a00000001 , new message1234:0d0a  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/beforeMessage@89  START  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/beforeMessage@93 是否授权帧： FALSE  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onMessage@178 beforeMessage Result :TRUE  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu\Controllers\ProtocolController/__construct@38 START worker:2d3e66b3132a00000001  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu\Wormhole\Protocols\QianNiu\EventsApi\message@177  client_id:2d3e66b3132a00000001, message:0d0a  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu/Wormhole\Protocols\QianNiu\Protocol/input@35 包长度 2  
+[2018-08-18 21:50:41] local.INFO: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onMessage@175 START
+ client:2d3e66b3132a00000001 , new message1234:0d0a  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/beforeMessage@89  START  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/beforeMessage@93 是否授权帧： FALSE  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onMessage@178 beforeMessage Result :TRUE  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu\Controllers\ProtocolController/__construct@38 START worker:2d3e66b3132a00000001  
+[2018-08-18 21:50:41] local.DEBUG: Wormhole\Protocols\QianNiu\Wormhole\Protocols\QianNiu\EventsApi\message@177  client_id:2d3e66b3132a00000001, message:0d0a  
+[2018-08-18 21:50:44] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onClose@199 Start, client: 2d3e66b3132a00000001   
+[2018-08-18 21:50:44] local.DEBUG: Wormhole\Protocols/Wormhole\Protocols\BaseEvents/onClose@207 END
+
+  
